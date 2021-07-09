@@ -2,14 +2,11 @@
     <div id='chat-panel' class="login-panel">
         <tr class='chatrooms-header'>
         <span class="material-icons md-24">chat</span>
-        <h2>Chatrooms</h2>
-        <p></p>
+        <h2>ChatBox</h2>
+      
         </tr>
         
-        <tr class="chatrooms-container" v-for="chatroom in chatrooms" :key="chatroom._id">
-            <td>{{ chatroom.name }}</td>
-            <td><button v-on:click="handleComponent" class="button-login">Entrar</button></td>
-        </tr>
+        <button v-on:click="handleComponent" class="button-login" id='button-chatbox'>Voltar</button>
     </div>
 </template>
 
@@ -42,7 +39,7 @@ export default {
                 })
             },
             handleComponent: function() {
-                this.$emit('handleComponent', false)
+                this.$emit('handleComponent', true)
             },
         },
         mounted() {
@@ -53,7 +50,6 @@ export default {
                 this.getChatrooms()
             }
         },
-        
         
 }
 </script>
@@ -75,6 +71,10 @@ export default {
 .chatrooms-header {
     text-align: center;
     margin-bottom: 20px;
+}
+#button-chatbox {
+    align-self: center;
+    width: 50%;
 }
 #chat-panel {
     position: relative;

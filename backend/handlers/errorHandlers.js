@@ -59,7 +59,7 @@ exports.catchErrors = (fn) => {
  
   exports.productionErrors = (err, req, res, next) => {
     res.status(err.status || 500).json({
-      error: "Internal Server Error",
+      error: "Erro interno do servidor",
     });
   };
   
@@ -69,6 +69,6 @@ exports.catchErrors = (fn) => {
   
   exports.notFound = (req, res, next) => {
     res.status(404).json({
-      message: "Route not found",
+      message: "Rota não encontrada",
     });
   };

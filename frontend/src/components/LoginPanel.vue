@@ -1,5 +1,5 @@
 <template>
-    <div class="login-panel" :zDepth="2">
+    <div class="login-panel">
         <span class="material-icons md-24">chat</span>
         <p class="login-title">Faça seu Login</p>
         <div id="Logininfo" class="login-info">
@@ -21,7 +21,7 @@
 
         </div>
         <div class="login-submit">
-            <a v-on:click="handleComponent" class='signuplink'>Sem conta? Cadastre-se</a>
+            <a v-on:click="handleComponent" class='signuplink'>Fazer Cadastro</a>
             <router-link to='/'>
             <button type="submit" label="LOGIN" class="button-login" v-on:click="loginIn()" primary>Entrar</button>
             </router-link>
@@ -59,36 +59,17 @@ export default {
             this.$emit('handleComponent', false)
         },
         loginIn() {
-            /*
-            const email = this.email.trim(),
-                password = this.password.trim();
-
-            if (email && password) {
-                this.$http.post(cfg.url + 'login', {
-                        email: email,
-                        password: password
-                    })
-                    .then((res) => {
-                        this.$store.dispatch('loginIn', { email });
-                        localStorage.setItem('token', res.body.token);
-                    }, (res) => {
-                        this.$router.push({ path: '/push' });
-                    });
-                    */
-
             axios.post(cfg.url + 'user/login', {
                 email: this.email,
                 password: this.password
             }).then((response) => {
                 this.makeToast("success", response.data.message)
-                //console.log(response.data.message)
                 localStorage.setItem('token', response.data.token)
                 console.log("Token: " + localStorage.token)
                 this.$router.push({path: '/dashboard'})
                 
             }).catch(err => {
                 this.makeToast("error", err.response.data.message)
-                //console.log(err.response.data.message)
             })
         },
         makeToast(type, msg) {
@@ -101,15 +82,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
-* {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+<style lang='scss'>
 
 .material-icons.md-24 {
     position: relative;
     margin-top: 20px;
-    padding-bottom: 0;
     text-align: left;
     font-size: 24px;
     color: #1976d2;
@@ -134,11 +111,12 @@ export default {
 }
 
 .login-panel .login-title {
+    display: flex;
+    justify-content: left;
     width: 100%;
-    text-align: left;
-    padding-top: 4em;
+    padding-top: 1.5em;
     font-size: 2em;
-    line-height: 4em;
+    line-height: 3em;
     color: #ffffff;
     background-color: #1976d2;
 
@@ -169,7 +147,6 @@ export default {
 
 .login-panel .login-info .input:focus {
   transform: scale(1.05);
-  opacity: 0.8;
 }
 .login-panel .login-submit {
     padding: 2em;
@@ -182,7 +159,7 @@ export default {
 
 button.button-login {
     width: 70px;
-    border-radius: 6px;
+    border-radius: 10px;
     background: #1976d2;
     color: #ffffff;
     transition: 0.1s ease-in-out;

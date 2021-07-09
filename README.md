@@ -63,7 +63,7 @@ Tabela de conteúdos
    - [x] Component Register
 - [x] Página Dashboard
    - [x] Component Chatlist
-   - [] Component Chatroom
+   - [ ] Component Chatroom
 - [x] Link com Backend
 
 ## Instalação

@@ -7,8 +7,8 @@
 
 
 <script>
-  import LoginPanel from "../components/LoginPanel";
-  import RegisterPanel from '../components/RegisterPanel.vue'
+  import LoginPanel from "../../components/LoginPanel";
+  import RegisterPanel from '../../components/RegisterPanel.vue'
 
   export default {
     components: { LoginPanel, RegisterPanel },
@@ -27,3 +27,6 @@
     }
   }
 </script>
+
+<style src='./style.scss' lang='scss' scoped />
+
