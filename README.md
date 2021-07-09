@@ -49,12 +49,13 @@ Tabela de conteúdos
 - [x] Login de usuário
 - [x] Controller de sala
 - [x] Criação de sala
-- [ ] Listagem de salas
+- [x] Listagem de salas
 - [x] Criação de token no cadastro de novo usuário
 - [x] Autenticação JWT
 - [x] Conexão Backend com MongoDB
 - [ ] Instalação do Socket Io
 - [ ] Storage de mídias
+- [ ] Mensagens
 
 ### Features Frontend
 
@@ -63,7 +64,7 @@ Tabela de conteúdos
    - [x] Component Register
 - [x] Página Dashboard
    - [x] Component Chatlist
-   - [ ] Component Chatroom
+   - [x] Component ChatBox
 - [x] Link com Backend
 
 ## Instalação
