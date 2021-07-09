@@ -6,8 +6,11 @@ Tabela de conteúdos
    * [Tabela de conteúdos](#tabela-de-conteúdos)
    * [Descrição do Projeto](#descrição-do-projeto)
       * [Requisitos](#requisitos)
-      * [Features](#features)
-   * [Rodando o Backend](#rodando-o-backend)
+      * [Features Backend](#features-backend)
+      * [Features Frontend](#features-backend)
+   * [Instalação](#instalação)
+      * [Rodando o Backend](#rodando-o-backend)
+      * [Rodando o Frontend](#rodando-o-frontend)
    * [Tecnologias](#tecnologias)
 <!--te-->
 
@@ -17,6 +20,10 @@ Tabela de conteúdos
 
 <h2 align="center"> 
 	🚧  Backend 🚀 Em construção...  🚧
+</h4>
+
+<h2 align="center"> 
+	🚧  Frontend 🚀 Em construção...  🚧
 </h4>
 
 ### Requisitos
@@ -29,8 +36,11 @@ Tabela de conteúdos
 - ExpressJs ou NestJs
 - MongoDB (Mongoose)
 - Socket io
+- VueJS
+- VueBootstrap
+- RxJS (Vue-Observable)
 
-### Features
+### Features Backend
 
 - [x] Criação dos Schemas
 - [x] Criação das Rotas
@@ -46,15 +56,28 @@ Tabela de conteúdos
 - [ ] Instalação do Socket Io
 - [ ] Storage de mídias
 
+### Features Frontend
+
+- [x] Página Home
+   - [x] Component Login
+   - [x] Component Register
+- [x] Página Dashboard
+   - [x] Component Chatlist
+   - [] Component Chatroom
+- [x] Link com Backend
+
+## Instalação
+
+
 ### Rodando o Backend
 
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/brenoma/chatapp-tallos>
+$ git clone <https://github.com/brenoma/chatapp>
 
-# Acesse a pasta do projeto no terminal/cmd
-$ cd chatapp-tallos
+# Acesse a pasta do backend no terminal/cmd
+$ cd backend
 
 # Instale as dependências
 $ npm install
@@ -65,14 +88,32 @@ $ npm start
 # O servidor inciará na porta:8000 - acesse <http://localhost:8000>
 ```
 
+### Rodando o Frontend
+
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/brenoma/chatapp>
+
+# Acesse a pasta do backend no terminal/cmd
+$ cd frontend
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run serve
+
+# O servidor inciará na porta:8080 - acesse <http://localhost:8080>
+```
+
 ### Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
+- [VueJS](https://vuejs.org/)
 - [Node.js](https://nodejs.org/en/)
-- [Express](https://expressjs.com/pt-br/)
 - [MongoDB](https://www.mongodb.com/)
-- [Socket Io](https://socket.io/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Insomnia](https://insomnia.rest)
 
