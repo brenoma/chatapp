@@ -54,7 +54,7 @@ Tabela de conteúdos
 - [x] Autenticação JWT
 - [x] Conexão Backend com MongoDB
 - [ ] Instalação do Socket Io
-- [ ] Storage de mídias
+- [x] Storage de mídias
 - [ ] Mensagens
 
 ### Features Frontend
@@ -64,8 +64,9 @@ Tabela de conteúdos
    - [x] Component Register
 - [x] Página Dashboard
    - [x] Component Chatlist
-   - [x] Component ChatBox
+   - [ ] Component ChatBox
 - [x] Link com Backend
+- [ ] Socket Io 
 
 ## Instalação
 
