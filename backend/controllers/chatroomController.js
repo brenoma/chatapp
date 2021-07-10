@@ -28,3 +28,19 @@ exports.getChatrooms = async (req, res) => {
 
     res.json(chatrooms)
 }
+
+exports.getChatroomById = async (req, res) => {
+    try {
+        const chatroom = await Chatroom.findOne({ _id: req.params.id })
+
+        res.json({
+            success: true,
+            _id: chatroom
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message
+        })
+    }
+}

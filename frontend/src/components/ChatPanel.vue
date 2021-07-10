@@ -1,14 +1,13 @@
 <template>
-    <div id='chat-panel' class="login-panel">
-        <tr class='chatrooms-header'>
+    <div class="login-panel">
         <span class="material-icons md-24">chat</span>
-        <h2>Chatrooms</h2>
-        <p></p>
-        </tr>
+        <p class="login-title">Chatrooms</p>
         
         <tr class="chatrooms-container" v-for="chatroom in chatrooms" :key="chatroom._id">
             <td>{{ chatroom.name }}</td>
-            <td><button v-on:click="handleComponent" class="button-login">Entrar</button></td>
+            <td><router-link :to="{ name: 'Chatroom', params: {id: chatroom._id}}">
+                <button class="button-login">Entrar</button>
+            </router-link></td>
         </tr>
     </div>
 </template>
@@ -26,9 +25,11 @@ export default {
                 /*token = io(cfg.url + 'chatroom', {
 
                 }) */
+
+                
             }
         },
-        methods: {
+        methods: {            
             getChatrooms() {
                 axios.get(cfg.url + 'chatroom', {
                     headers: {
@@ -52,8 +53,7 @@ export default {
             } else {
                 this.getChatrooms()
             }
-        },
-        
+        },       
         
 }
 </script>
@@ -66,7 +66,7 @@ export default {
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 90%;
+    width: 70%;
 
     @media screen and (max-width: 769px) {
         font-size: 12px;
@@ -76,12 +76,7 @@ export default {
     text-align: center;
     margin-bottom: 20px;
 }
-#chat-panel {
-    position: relative;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    height: 60vh;
-    width: 400px;
+tr {
+    padding-bottom: 10px;
 }
 </style>

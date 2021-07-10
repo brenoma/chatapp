@@ -1,13 +1,42 @@
 <template>
-    <div id='chat-panel' class="login-panel">
-        <tr class='chatrooms-header'>
-        <span class="material-icons md-24">chat</span>
-        <h2>ChatBox</h2>
-      
-        </tr>
+
         
-        <button v-on:click="handleComponent" class="button-login" id='button-chatbox'>Voltar</button>
-    </div>
+        <div class="chatroomPage">
+            <div class="chatroomSection">
+                <div class="chatroomHeader">
+                    Chatroom Name
+                    <router-link to="/dashboard">
+                        <button class="button-login">Sair</button>
+                    </router-link>
+                </div>
+                <div class="chatroomContent">
+                        <div class="message">
+                            <span class="ownMessage">Breno:</span> Bom dia
+                        </div>
+                        <div class="message">
+                            <span class="otherMessage">Qualquer pessoa:</span> Bom dia
+                        </div>
+                </div>
+                <div class="chatroomActions">
+                    <div>
+                        <input
+                            class="chatroomInput"
+                            type="text"
+                            name="message"
+                            placeholder="Escreva sua mensagem!"
+                            ref={messageRef}
+                        />
+                    </div>
+                    <div>
+                        <button class="button-login">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 </template>
 
 <script>
@@ -19,15 +48,15 @@ export default {
     name: 'ChatPanel',
         data() {
             return {
-                chatrooms: [ ],
-                /*token = io(cfg.url + 'chatroom', {
-
-                }) */
+                chatroom: { },
+                messages: [ ],
+                users: [ ],
+                
             }
         },
         methods: {
             getChatrooms() {
-                axios.get(cfg.url + 'chatroom', {
+                axios.get(cfg.url + 'chatroom/' , {
                     headers: {
                         Authorization: "Bearer " + localStorage.getItem('token')
                     },
@@ -37,9 +66,6 @@ export default {
                 }).catch(err => {
                     setTimeout(this.getChatrooms, 3000)
                 })
-            },
-            handleComponent: function() {
-                this.$emit('handleComponent', true)
             },
         },
         mounted() {
@@ -55,33 +81,82 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.chatrooms-container {
+.chatroomHeader {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    align-self: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 90%;
+    background-color: #1976d2;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.chatroomHeader button {
+    transform: scale(0.8);
+}
 
-    @media screen and (max-width: 769px) {
-        font-size: 12px;
-    }
+.chatroomPage {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: -8px;
 }
-.chatrooms-header {
-    text-align: center;
-    margin-bottom: 20px;
+
+.chatroomSection {
+  background-color: #fff;
+  width: 40vw;
+  height: 80vh;
+  margin: auto;
+  border-radius: 10px;
+  position: relative;
 }
-#button-chatbox {
-    align-self: center;
-    width: 50%;
+
+.chatroomContent {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  right: 0;
+  bottom: 3.5rem;
+  padding: 0.5rem;
+  overflow: auto;
 }
-#chat-panel {
-    position: relative;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    height: 60vh;
-    width: 400px;
+
+.chatroomActions {
+  position: absolute;
+  bottom: 0;
+  background-color: #1976d2;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 72px;
+  grid-gap: 1rem;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
+
+.chatroomInput {
+    width: 90%;
+    border-radius: 7px;
+}
+
+.message {
+  margin-bottom: 0.25rem;
+}
+
+.otherMessage {
+  color: #0099cc;
+  font-weight: bold;
+}
+
+.ownMessage {
+  color: #00cc00;
+  font-weight: bold;
+}
+
+
 </style>

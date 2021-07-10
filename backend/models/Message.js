@@ -3,17 +3,17 @@ const mongoose = require('mongoose');
 const messageSchema = new mongoose.Schema({
     chatroom: {
         type: mongoose.Schema.Types.ObjectId,
-        required: 'Chatroom is required',
+        required: 'Sala necessária',
         ref: 'Chatroom'
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        required: 'User is required',
+        required: 'Usuário necessário',
         ref: 'User'
     },
     message: {
         type: String,
-        required: 'Message is required'
+        required: 'Digite uma mensagem'
     }
 })
 

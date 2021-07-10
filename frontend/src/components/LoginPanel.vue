@@ -22,9 +22,7 @@
         </div>
         <div class="login-submit">
             <a v-on:click="handleComponent" class='signuplink'>Fazer Cadastro</a>
-            <router-link to='/'>
             <button type="submit" label="LOGIN" class="button-login" v-on:click="loginIn()" primary>Entrar</button>
-            </router-link>
         </div> 
     </div>
 </template>
